@@ -19,7 +19,7 @@ class Main extends Model
 	public function lastSn()
 	{
 
-		$lastsn = $this->db->lastSerial('SELECT serial FROM serial ORDER BY serial DESC LIMIT 1');
+		$lastsn = $this->db->lastSerial('SELECT serial FROM serial ORDER BY idserial DESC ');
 		$lastsn = substr($lastsn, -5);
 		return $lastsn;
 	}
@@ -30,10 +30,13 @@ class Main extends Model
 		$params = [
 
 			'code' => $post['code'],
-			//'quantity' => $post['quantity'],
+			'quantity' => $post['quantity'],
 			
 		];
+		for($i=1; $i<=$params['quantity']; $i++){
 		$serial = '123'.$params['code'].Main::lastSn() + 1;
-		return $this->db->query('INSERT INTO serial (serial) VALUES (:serial)', ['serial' => $serial]);
+		$this->db->query('INSERT INTO serial (serial) VALUES (:serial)', ['serial' => $serial]);
+	}
+	return ;
 	}
 }
