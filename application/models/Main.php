@@ -29,8 +29,7 @@ class Main extends Model
 	{
 		$codelen = iconv_strlen($post['code']);
 		$quantitylen = iconv_strlen($post['quantity']);
-		$codeNum=is_numeric($post['code']);
-		$quantiNum = is_numeric($post['quantity']);
+		
 		
 		
 		if ($codelen < 4 or $codelen > 6) {
@@ -56,11 +55,14 @@ class Main extends Model
 			'quantity' => $post['quantity'],
 
 		];
-
-		for ($i = 1; $i <= $params['quantity']; $i++) {
+			
+		for ($i = 1; $i <= $params['quantity']; $i++){
+			
 			$serial = '123' . $params['code'] . Main::lastSn() + 1;
+			
 			$this->db->query('INSERT INTO serial (serial) VALUES (:serial)', ['serial' => $serial]);
 		}
+		
 		return true;
 	}
 
@@ -68,12 +70,12 @@ class Main extends Model
 	{
 		$params = [
 
-			'code' => $post['code'],
+		
 			'quantity' => $post['quantity'],
 
 		];
 
-		$list = $this->db->query('SELECT serial FROM serial ORDER BY idserial DESC LIMIT :quantity ', $params);
+		$list = $this->db->column('SELECT serial FROM (serial)ORDER BY idserial DESC LIMIT 2 ');
 		return $list;
 	}*/
 }
