@@ -5,13 +5,13 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-8">
-                        <form action="/admin/extr" enctype="multipart/form-data" method="post">
+                        <form action="/admin/extr"  method="post">
                             
                             <div class="form-group">
                                 <label>Файли CSV</label>
                                 <input class="form-control" type="file" name="file">
                             </div>
-                            <button type="submit" name="submit" value="Upload" class="btn btn-primary btn-block">Добавить</button>
+                            <button type="submit"   class="btn btn-primary btn-block">Добавить</button>
                         </form>
                     </div>
                 </div>

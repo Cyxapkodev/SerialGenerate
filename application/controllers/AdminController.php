@@ -104,11 +104,14 @@ class AdminController extends Controller
 		
 	}
 	public function extrAction()
-	{if (!empty($_POST)){
-		$this->model->csvValidate();
-		$csvFile = fopen($_FILES['file']['tmp_name'], 'r');
-		fgetcsv($csvFile);
-		$this->view->render('Добавить файл CSV');
+	{if (!empty($_FILES)){
+		
+		if(!$this->model->extrAdd()){
+			$this->view->message('Ошибка', 'проверьте файл');
+		}
+		;
+		
+		$this->view->message('Номера добaвленны', '');
 	}
 				$this->view->render('Добавить файл CSV');
 			
