@@ -10,24 +10,28 @@ class MainController extends Controller
 {
 
 	public function indexAction()
-	{ if (!empty($_POST)){
-		$this->model->indexInsert($_POST);
-		$this->view->message('success', 'Добавленно');
-	}else{
-		//$this->view->message('success', 'dsfsd');
-	  }
-		
-		
+	{
+		if (!empty($_POST)) {
+			if (!$this->model->indexValidate($_POST)) {
+				$this->view->message('error', $this->model->error);
+			}
+			$this->model->indexInsert($_POST);
+			$this->view->message('Номера добавленны', '');
+		} 
+
+
 		$this->view->render('Главная страница');
 	}
 
 
 
-	public function postAction()
+	public function editAction()
 	{
 	}
 	public function serialAction()
-	{ 
-	
+	{
+		if (!empty($_POST)) {
+			$this->model->indexEdit($_POST);
+		}
 	}
 }
