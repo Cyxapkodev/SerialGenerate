@@ -16,6 +16,7 @@ class MainController extends Controller
 				$this->view->message('error', $this->model->error);
 			}
 			$this->model->indexInsert($_POST);
+			//$this->model->indexEdit($_POST);
 			$this->view->message('Номера добавленны', '');
 		} 
 
@@ -30,8 +31,5 @@ class MainController extends Controller
 	}
 	public function serialAction()
 	{
-		if (!empty($_POST)) {
-			$this->model->indexEdit($_POST);
-		}
 	}
 }

@@ -64,7 +64,7 @@ class Main extends Model
 		return true;
 	}
 
-	public function indexEdit($post)
+	/*public function indexEdit($post)
 	{
 		$params = [
 
@@ -75,5 +75,5 @@ class Main extends Model
 
 		$list = $this->db->query('SELECT serial FROM serial ORDER BY idserial DESC LIMIT :quantity ', $params);
 		return $list;
-	}
+	}*/
 }
