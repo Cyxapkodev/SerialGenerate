@@ -16,9 +16,12 @@ class MainController extends Controller
 				$this->view->message('error', $this->model->error);
 			}
 			$this->model->indexInsert($_POST);
-			//$this->model->indexEdit($_POST);
-			$this->view->message('Номера добавленны', '');
-		} 
+
+
+			$filename = 'S' . $_POST['code'] . 'Q' . $_POST['quantity'] . " " . date("m.d.y");
+			
+			$this->view->message('Номера добавленны', $filename);
+		}
 
 
 		$this->view->render('Главная страница');
