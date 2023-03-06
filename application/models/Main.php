@@ -34,6 +34,6 @@ class Main extends Model
 			
 		];
 		$serial = '123'.$params['code'].Main::lastSn() + 1;
-		return $this->db->querysn('INSERT INTO serial (serial) VALUES (:serial)', $serial);
+		return $this->db->query('INSERT INTO serial (serial) VALUES (:serial)', ['serial' => $serial]);
 	}
 }
