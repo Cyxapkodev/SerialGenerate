@@ -32,7 +32,7 @@ class Main extends Model
 
 
 
-		if ($codelen < 4 or $codelen > 6) {
+		if ($codelen < 5 or $codelen > 5) {
 			$this->error = 'Код должен быть 5 символов';
 			return false;
 		} elseif ($quantitylen < 1) {
