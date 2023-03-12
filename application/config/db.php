@@ -5,4 +5,5 @@ return [
 	'name' => 'serial_number',
 	'user' => 'ddevserialaan',
 	'password' => 'sTJ-FtZ-w7p-qmi',
+
 ];
