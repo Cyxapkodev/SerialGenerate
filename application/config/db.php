@@ -1,8 +1,9 @@
 <?php
 
 return [
-	'host' => '127.0.0.1',
-	'name' => 'db',
-	'user' => 'root',
-	'password' => '',
+	'host' => 'db4free.net',
+	'port' => '3306',
+	'name' => 'serial_number',
+	'user' => 'ddevserialaan',
+	'password' => 'sTJ-FtZ-w7p-qmi',
 ];
